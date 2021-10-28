@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-Bv-iNo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-Bv-iNo">
                                 <rect key="frame" x="0.0" y="44" width="414" height="488"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testCell" id="tTX-7Q-Pmw">
@@ -34,6 +33,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QeY-Bv-iNo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5rC-CZ-Dqw"/>
+                            <constraint firstItem="QeY-Bv-iNo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="djV-Li-DBI"/>
+                            <constraint firstItem="QeY-Bv-iNo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jHW-b5-psv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QeY-Bv-iNo" secondAttribute="bottom" constant="330" id="v3q-1t-QDO"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="testTableView" destination="QeY-Bv-iNo" id="0J3-J2-dUF"/>
