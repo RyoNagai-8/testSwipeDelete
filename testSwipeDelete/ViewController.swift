@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
         testTableView.delegate = self
         testTableView.dataSource = self
+        print("test:\(textlist)")
     }
 
 
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return textlist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
