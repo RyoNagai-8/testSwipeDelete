@@ -12,13 +12,25 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var testTableView: UITableView!
     var textlist = [Entity]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         testTableView.delegate = self
         testTableView.dataSource = self
-        print("test:\(textlist)")
+        addTextlist()
+    }
+    
+    //MARK: - 新しい項目を追加する
+    /**
+     新しい項目を追加する
+     */
+    func addTextlist(){
+        //データを入力する
+        let newItem = Entity(context: self.context)
+        newItem.test = "test"
+        textlist.append(newItem)
     }
 
 
