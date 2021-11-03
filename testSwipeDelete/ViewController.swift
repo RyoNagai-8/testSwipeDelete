@@ -36,12 +36,10 @@ class ViewController: UIViewController {
         textlist.append(newItem)
     }
     
-    //MARK: - CoreData load
+    //MARK: - CoreData 読み込み
     
     func loadTextlist() {
-        
         let request : NSFetchRequest<Entity> = Entity.fetchRequest()
-        
         do{
             textlist = try context.fetch(request)
         } catch {
@@ -78,7 +76,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
             // 先にデータを削除しないと、エラーが発生する。
-            //tableView.deleteRows(at: [indexPath], with: .automatic)
+        let task = textlist[indexPath.row]
+        context.delete(task)
+        do {
+            textlist = try context.fetch(Entity.fetchRequest())
+        }
+        catch{
+            print("Error delete \(error)")
+        }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        self.saveTextlist()
         }
     
     
