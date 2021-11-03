@@ -19,7 +19,10 @@ class ViewController: UIViewController {
         
         testTableView.delegate = self
         testTableView.dataSource = self
-        addTextlist()
+        self.addTextlist()
+        self.loadTextlist()
+        self.saveTextlist()
+        print("test: \(textlist)")
     }
     
     //MARK: - 新しい項目を追加する
@@ -31,6 +34,29 @@ class ViewController: UIViewController {
         let newItem = Entity(context: self.context)
         newItem.test = "test"
         textlist.append(newItem)
+    }
+    
+    //MARK: - CoreData load
+    
+    func loadTextlist() {
+        
+        let request : NSFetchRequest<Entity> = Entity.fetchRequest()
+        
+        do{
+            textlist = try context.fetch(request)
+        } catch {
+            print("Error loading checklist \(error)")
+        }
+        
+    }
+    
+    //MARK: - CoreData 保存する
+    func saveTextlist() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving Item \(error)")
+        }
     }
 
 
@@ -44,7 +70,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
         
-        cell.textLabel?.text = "test"
+        cell.textLabel?.text = textlist[indexPath.row].test
         
         return cell
     }
