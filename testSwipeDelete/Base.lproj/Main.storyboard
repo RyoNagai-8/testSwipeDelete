@@ -30,14 +30,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-cp-HeL">
+                                <rect key="frame" x="168.5" y="662" width="77" height="30"/>
+                                <state key="normal" title="文字を追加"/>
+                                <connections>
+                                    <action selector="addText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z9g-wO-DCr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QeY-Bv-iNo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5rC-CZ-Dqw"/>
                             <constraint firstItem="QeY-Bv-iNo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="djV-Li-DBI"/>
+                            <constraint firstItem="FHh-cp-HeL" firstAttribute="centerX" secondItem="QeY-Bv-iNo" secondAttribute="centerX" id="fyg-bE-aqd"/>
                             <constraint firstItem="QeY-Bv-iNo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jHW-b5-psv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QeY-Bv-iNo" secondAttribute="bottom" constant="330" id="v3q-1t-QDO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FHh-cp-HeL" secondAttribute="bottom" constant="170" id="z5d-Tv-bOx"/>
                         </constraints>
                     </view>
                     <connections>

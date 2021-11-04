@@ -11,6 +11,8 @@ import CoreData
 class ViewController: UIViewController {
 
     @IBOutlet weak var testTableView: UITableView!
+    
+    
     var textlist = [Entity]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -19,21 +21,9 @@ class ViewController: UIViewController {
         
         testTableView.delegate = self
         testTableView.dataSource = self
-        self.addTextlist()
         self.loadTextlist()
         self.saveTextlist()
         print("test: \(textlist)")
-    }
-    
-    //MARK: - 新しい項目を追加する
-    /**
-     新しい項目を追加する
-     */
-    func addTextlist(){
-        //データを入力する
-        let newItem = Entity(context: self.context)
-        newItem.test = "test"
-        textlist.append(newItem)
     }
     
     //MARK: - CoreData 読み込み
@@ -45,7 +35,6 @@ class ViewController: UIViewController {
         } catch {
             print("Error loading checklist \(error)")
         }
-        
     }
     
     //MARK: - CoreData 保存する
@@ -56,8 +45,16 @@ class ViewController: UIViewController {
             print("Error saving Item \(error)")
         }
     }
-
-
+    
+    
+    @IBAction func addText(_ sender: Any) {
+        //データを入力する
+        let newItem = Entity(context: self.context)
+        newItem.test = "test"
+        textlist.append(newItem)
+        testTableView.reloadData()
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -74,7 +71,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
             // 先にデータを削除しないと、エラーが発生する。
         let task = textlist[indexPath.row]
         context.delete(task)
