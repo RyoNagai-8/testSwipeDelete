@@ -46,12 +46,14 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - セルにデータを追加
     @IBAction func addText(_ sender: Any) {
-        //データを入力する
+        //空のデータを追加
         let newItem = Entity(context: self.context)
+        //テキストを追加
         newItem.test = "test"
         textlist.append(newItem)
+        //テーブルビューをリロード
         testTableView.reloadData()
     }
     
