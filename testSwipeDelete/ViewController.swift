@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  testSwipeDelete
 //
-//  Created by RyoNagai on 2021/10/26.
+//  Created by Ryo on 2021/10/26.
 //
 
 import UIKit
@@ -11,8 +11,6 @@ import CoreData
 class ViewController: UIViewController {
     
     @IBOutlet weak var testTableView: UITableView!
-    
-    
     var textlist = [Entity]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -23,11 +21,9 @@ class ViewController: UIViewController {
         testTableView.dataSource = self
         self.loadTextlist()
         self.saveTextlist()
-        print("test: \(textlist)")
     }
     
     //MARK: - CoreData 読み込み
-    
     func loadTextlist() {
         let request : NSFetchRequest<Entity> = Entity.fetchRequest()
         do{
@@ -56,7 +52,6 @@ class ViewController: UIViewController {
         //テーブルビューをリロード
         testTableView.reloadData()
     }
-    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
