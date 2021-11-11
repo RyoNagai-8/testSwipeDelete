@@ -70,6 +70,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 先にデータを削除しないと、エラーが発生する。
         let task = textlist[indexPath.row]
+        //データを削除
         context.delete(task)
         do {
             textlist = try context.fetch(Entity.fetchRequest())
