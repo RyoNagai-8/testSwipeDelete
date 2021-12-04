@@ -67,6 +67,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    //MARK: - スワイプ削除の処理
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 先にデータを削除しないと、エラーが発生する。
         let task = textlist[indexPath.row]
@@ -81,5 +82,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deleteRows(at: [indexPath], with: .automatic)
         self.saveTextlist()
     }
+    
 }
 
